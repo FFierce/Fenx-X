@@ -1,4 +1,49 @@
-\sdcsl;c
-sajxm
-https://raw.githubusercontent.com/FFierce/Fenx-X/main/UpdateCheckhttps://raw.githubusercontent.com/FFierce/Fenx-X/main/UpdateCheckhttps://raw.githubusercontent.com/FFierce/Fenx-X/main/UpdateCheckhttps://raw.githubusercontent.com/FFierce/Fenx-X/main/UpdateCheck
-https://raw.githubusercontent.com/FFierce/Fenx-X/main/UpdateCheck
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Fenx_X
+{
+    public partial class LoadingUI : Form
+    {
+        public LoadingUI()
+        {
+            InitializeComponent();
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private async void Loadingtime_Tick(object sender, EventArgs e)
+        {
+            Loadingtime.Stop();
+            await Task.Delay(1000);
+            WebClient updatecheck = new WebClient();
+            Loading.Width = 120;
+            DataLabel.Text = ("Checking for updates");
+            await Task.Delay(1000);
+            if (updatecheck.DownloadString("https://raw.githubusercontent.com/FFierce/Fenx-X/main/UpdateCheck").Contains("3.1"))
+            {
+                DataLabel.Text = ("You don't have the latest version.");
+                MessageBox.Show("You don't have the latest version of Fenx X, please update. Join the discord server for support.", "Fenx X");
+                System.Diagnostics.Process.Start("https://discord.com/invite/Gp8Mv2qumF");
+                await Task.Delay(1000);
+                Application.Exit();
+            }
+            else
+            {
+                Loading.Width = 210;
+                DataLabel.Text = ("Checking if Fenx X is patched");
+            }
+        }
+    }
+}
