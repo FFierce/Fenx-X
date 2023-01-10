@@ -1,0 +1,410 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local Fenx = Instance.new("ScreenGui")
+local Held = Instance.new("Frame")
+local UIRounder = Instance.new("UICorner")
+local Area = Instance.new("Frame")
+local _10 = Instance.new("TextButton")
+local _20 = Instance.new("TextButton")
+local _30 = Instance.new("TextButton")
+local _40 = Instance.new("TextButton")
+local Speed = Instance.new("TextBox")
+local TypingCorner = Instance.new("UICorner")
+local _50 = Instance.new("TextButton")
+local _100 = Instance.new("TextButton")
+local Default = Instance.new("TextButton")
+local Fly = Instance.new("TextButton")
+local Noclip = Instance.new("TextButton")
+local Nameplate = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local NameplateRounder = Instance.new("UICorner")
+local Notify = Instance.new("Frame")
+local Ok = Instance.new("TextLabel")
+local UICorner = Instance.new("UICorner")
+
+--Properties:
+
+Fenx.Name = "Fenx"
+Fenx.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Fenx.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Held.Name = "Held"
+Held.Parent = Fenx
+Held.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Held.BackgroundTransparency = 0.600
+Held.Position = UDim2.new(0.264093131, 0, 0.188279316, 0)
+Held.Size = UDim2.new(0, 696, 0, 366)
+
+UIRounder.CornerRadius = UDim.new(0, 9)
+UIRounder.Name = "UIRounder"
+UIRounder.Parent = Held
+
+Area.Name = "Area"
+Area.Parent = Held
+Area.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Area.BackgroundTransparency = 1.000
+Area.Size = UDim2.new(0, 696, 0, 366)
+
+_10.Name = "10"
+_10.Parent = Area
+_10.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+_10.Position = UDim2.new(0.0282497406, 0, 0.159137666, 0)
+_10.Size = UDim2.new(0, 200, 0, 50)
+_10.Font = Enum.Font.JosefinSans
+_10.Text = "+10 Speed"
+_10.TextColor3 = Color3.fromRGB(0, 0, 0)
+_10.TextSize = 35.000
+
+_20.Name = "20"
+_20.Parent = Area
+_20.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+_20.Position = UDim2.new(0.0282497406, 0, 0.314875364, 0)
+_20.Size = UDim2.new(0, 200, 0, 50)
+_20.Font = Enum.Font.JosefinSans
+_20.Text = "+20 Speed"
+_20.TextColor3 = Color3.fromRGB(0, 0, 0)
+_20.TextSize = 35.000
+
+_30.Name = "30"
+_30.Parent = Area
+_30.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
+_30.Position = UDim2.new(0.0282497406, 0, 0.473345309, 0)
+_30.Size = UDim2.new(0, 200, 0, 50)
+_30.Font = Enum.Font.JosefinSans
+_30.Text = "+30 Speed"
+_30.TextColor3 = Color3.fromRGB(0, 0, 0)
+_30.TextSize = 35.000
+
+_40.Name = "40"
+_40.Parent = Area
+_40.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+_40.Position = UDim2.new(0.0282497406, 0, 0.631815195, 0)
+_40.Size = UDim2.new(0, 200, 0, 50)
+_40.Font = Enum.Font.JosefinSans
+_40.Text = "+40 Speed"
+_40.TextColor3 = Color3.fromRGB(0, 0, 0)
+_40.TextSize = 35.000
+
+Speed.Name = "Speed"
+Speed.Parent = Area
+Speed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Speed.Position = UDim2.new(0.36925289, 0, 0.0163934436, 0)
+Speed.Size = UDim2.new(0, 176, 0, 39)
+Speed.Font = Enum.Font.JosefinSans
+Speed.Text = "Set Amount..."
+Speed.TextColor3 = Color3.fromRGB(85, 85, 127)
+Speed.TextSize = 27.000
+
+TypingCorner.Name = "TypingCorner"
+TypingCorner.Parent = Speed
+
+_50.Name = "50"
+_50.Parent = Area
+_50.BackgroundColor3 = Color3.fromRGB(255, 255, 0)
+_50.Position = UDim2.new(0.0282497406, 0, 0.787552953, 0)
+_50.Size = UDim2.new(0, 200, 0, 50)
+_50.Font = Enum.Font.JosefinSans
+_50.Text = "+50 Speed"
+_50.TextColor3 = Color3.fromRGB(0, 0, 0)
+_50.TextSize = 35.000
+
+_100.Name = "100"
+_100.Parent = Area
+_100.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+_100.Position = UDim2.new(0.644629121, 0, 0.159137666, 0)
+_100.Size = UDim2.new(0, 200, 0, 50)
+_100.Font = Enum.Font.JosefinSans
+_100.Text = "+100 Speed"
+_100.TextColor3 = Color3.fromRGB(0, 0, 0)
+_100.TextSize = 35.000
+
+Default.Name = "Default"
+Default.Parent = Area
+Default.BackgroundColor3 = Color3.fromRGB(85, 85, 255)
+Default.Position = UDim2.new(0.334284246, 0, 0.159137666, 0)
+Default.Size = UDim2.new(0, 200, 0, 50)
+Default.Font = Enum.Font.JosefinSans
+Default.Text = "Default"
+Default.TextColor3 = Color3.fromRGB(0, 0, 0)
+Default.TextSize = 35.000
+
+Fly.Name = "Fly"
+Fly.Parent = Area
+Fly.BackgroundColor3 = Color3.fromRGB(85, 255, 127)
+Fly.Position = UDim2.new(0.334284246, 0, 0.314875364, 0)
+Fly.Size = UDim2.new(0, 200, 0, 50)
+Fly.Font = Enum.Font.JosefinSans
+Fly.Text = "Look Fly"
+Fly.TextColor3 = Color3.fromRGB(0, 0, 0)
+Fly.TextSize = 35.000
+
+Noclip.Name = "Noclip"
+Noclip.Parent = Area
+Noclip.BackgroundColor3 = Color3.fromRGB(255, 85, 255)
+Noclip.Position = UDim2.new(0.334284246, 0, 0.473345309, 0)
+Noclip.Size = UDim2.new(0, 200, 0, 50)
+Noclip.Visible = false
+Noclip.Font = Enum.Font.JosefinSans
+Noclip.Text = "Phase"
+Noclip.TextColor3 = Color3.fromRGB(255, 255, 255)
+Noclip.TextSize = 35.000
+
+Nameplate.Name = "Nameplate"
+Nameplate.Parent = Held
+Nameplate.BackgroundColor3 = Color3.fromRGB(85, 170, 255)
+Nameplate.Position = UDim2.new(0.383620679, 0, -0.142076507, 0)
+Nameplate.Size = UDim2.new(0, 157, 0, 52)
+
+Title.Name = "Title"
+Title.Parent = Nameplate
+Title.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+Title.BackgroundTransparency = 1.000
+Title.Position = UDim2.new(0.0141939223, 0, -0.00199663639, 0)
+Title.Size = UDim2.new(0, 157, 0, 50)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "U Suck"
+Title.TextColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextSize = 47.000
+Title.TextStrokeTransparency = 0.830
+
+NameplateRounder.Name = "NameplateRounder"
+NameplateRounder.Parent = Nameplate
+
+Notify.Name = "Notify"
+Notify.Parent = Fenx
+Notify.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+Notify.BackgroundTransparency = 0.550
+Notify.Position = UDim2.new(0.709558845, 0, 0.331670821, 0)
+Notify.Size = UDim2.new(0, 332, 0, 79)
+
+Ok.Name = "Ok"
+Ok.Parent = Notify
+Ok.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Ok.BackgroundTransparency = 1.000
+Ok.Position = UDim2.new(0.198795184, 0, 0.177215189, 0)
+Ok.Size = UDim2.new(0, 200, 0, 50)
+Ok.Font = Enum.Font.SourceSans
+Ok.Text = "Press \"E\" to hide."
+Ok.TextColor3 = Color3.fromRGB(0, 0, 0)
+Ok.TextSize = 39.000
+
+UICorner.CornerRadius = UDim.new(0, 905)
+UICorner.Parent = Notify
+
+-- Scripts:
+
+local function BFHGUN_fake_script() -- _10.LocalScript 
+	local script = Instance.new('LocalScript', _10)
+
+	plr = game.Players.LocalPlayer
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		plr.Character.Humanoid.WalkSpeed += 10
+	end)
+end
+coroutine.wrap(BFHGUN_fake_script)()
+local function PPYT_fake_script() -- _20.LocalScript 
+	local script = Instance.new('LocalScript', _20)
+
+	plr = game.Players.LocalPlayer
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		plr.Character.Humanoid.WalkSpeed += 20
+	end)
+end
+coroutine.wrap(PPYT_fake_script)()
+local function PRAFZR_fake_script() -- _30.LocalScript 
+	local script = Instance.new('LocalScript', _30)
+
+	plr = game.Players.LocalPlayer
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		plr.Character.Humanoid.WalkSpeed += 30
+	end)
+end
+coroutine.wrap(PRAFZR_fake_script)()
+local function CECVF_fake_script() -- _40.LocalScript 
+	local script = Instance.new('LocalScript', _40)
+
+	plr = game.Players.LocalPlayer
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		plr.Character.Humanoid.WalkSpeed += 40
+	end)
+end
+coroutine.wrap(CECVF_fake_script)()
+local function VKDBVB_fake_script() -- Speed.LocalScript 
+	local script = Instance.new('LocalScript', Speed)
+
+	local plr = game.Players.LocalPlayer
+	local char = plr.Character
+	local hum = char:WaitForChild("Humanoid")
+	
+	script.Parent.Changed:Connect(function()
+		hum.WalkSpeed = script.Parent.Text
+	end)
+end
+coroutine.wrap(VKDBVB_fake_script)()
+local function VJZZX_fake_script() -- _50.LocalScript 
+	local script = Instance.new('LocalScript', _50)
+
+	plr = game.Players.LocalPlayer
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		plr.Character.Humanoid.WalkSpeed += 50
+	end)
+end
+coroutine.wrap(VJZZX_fake_script)()
+local function GKEB_fake_script() -- _100.LocalScript 
+	local script = Instance.new('LocalScript', _100)
+
+	plr = game.Players.LocalPlayer
+	script.Parent.MouseButton1Click:Connect(function()
+	
+		plr.Character.Humanoid.WalkSpeed += 100
+	end)
+end
+coroutine.wrap(GKEB_fake_script)()
+local function JNNFGW_fake_script() -- Default.LocalScript 
+	local script = Instance.new('LocalScript', Default)
+
+	plr = game.Players.LocalPlayer
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		plr.Character.Humanoid.WalkSpeed = 16
+	end)
+end
+coroutine.wrap(JNNFGW_fake_script)()
+local function DQXTZ_fake_script() -- Fly.LocalScript 
+	local script = Instance.new('LocalScript', Fly)
+
+	local isFlying = false
+	local camera = workspace.CurrentCamera
+	local char = game.Players.LocalPlayer.Character
+	local hrp = char:WaitForChild("HumanoidRootPart")
+	
+	local bodyPos = Instance.new("BodyPosition")
+	bodyPos.MaxForce = Vector3.new()
+	bodyPos.D = 10
+	bodyPos.P = 100
+	bodyPos.Parent = hrp
+	
+	local bodyGyro = Instance.new("BodyGyro")
+	bodyGyro.MaxTorque = Vector3.new()
+	bodyGyro.D = 10
+	bodyGyro.Parent = hrp
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		isFlying = not isFlying
+	end)
+	
+	
+	game:GetService("RunService").RenderStepped:Connect(function()
+		if isFlying then
+			bodyPos.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+			bodyGyro.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+			bodyPos.Position = hrp.Position +((hrp.Position - camera.CFrame.Position).Unit * 10)
+			bodyGyro.CFrame = CFrame.new(camera.CFrame.Position, hrp.Position)
+		else
+			bodyPos.MaxForce = Vector3.new()
+			bodyGyro.MaxTorque = Vector3.new()
+		end
+	end)
+end
+coroutine.wrap(DQXTZ_fake_script)()
+local function SBDAUVV_fake_script() -- Noclip.LocalScript 
+	local script = Instance.new('LocalScript', Noclip)
+
+	local Player = game:GetService("Players").LocalPlayer
+	local RunService = game:GetService("RunService")
+	
+	local isnoclipping = false
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		if isnoclipping== true then
+			isnoclipping=false
+			script.Parent.Text = "Noclip [OFF]"
+			script.Parent.BackgroundColor3=Color3.new.fromRBG(1, 0, 0.0156863)
+		else	
+			isnoclipping=true
+			script.Parent.Text = "Noclip [ON]"
+			script.Parent.BackgroundColor3=Color3.new.fromRBG(81, 255, 28)
+		end
+	end)
+	
+	RunService.Stepped:Connect(function()
+		if Player.Character then
+			if isnoclipping == true then
+				for i,v in pairs(Player.Character:GetDescendants()) do
+					if v:IsA(BasePart) then
+						v.CanCollide = false
+					end
+				end
+			end	
+		end
+	end)
+end
+coroutine.wrap(SBDAUVV_fake_script)()
+local function JMTME_fake_script() -- Nameplate.LocalScript 
+	local script = Instance.new('LocalScript', Nameplate)
+
+	frame = script.Parent.Parent
+	frame.Draggable = true
+	frame.Active = true
+	frame.Selectable = true
+	frame.ResetOnSpawn = false
+	print("donut sucks")
+end
+coroutine.wrap(JMTME_fake_script)()
+local function CRYT_fake_script() -- Held.Keybind 
+	local script = Instance.new('LocalScript', Held)
+
+	player = game.Players.LocalPlayer
+	
+	player:GetMouse().KeyDown:Connect(function(key)
+		if key == "e" and script.Parent.Visible == false then
+			script.Parent.Visible = true
+		else
+			if key == "e" and script.Parent.Visible == true then
+				script.Parent.Visible = false
+			end
+		end
+	end)
+end
+coroutine.wrap(CRYT_fake_script)()
+local function OIAEXHQ_fake_script() -- Held.LocalScript 
+	local script = Instance.new('LocalScript', Held)
+
+	print("Hello world!")
+	
+end
+coroutine.wrap(OIAEXHQ_fake_script)()
+local function EUOY_fake_script() -- Notify.LocalScript 
+	local script = Instance.new('LocalScript', Notify)
+
+	t = script.Parent.BackgroundTransparency
+	
+	wait(0.5)
+	t += 0.5
+	wait(0.5)
+	t += 0.55
+	wait(0.5)
+	t += 0.6
+	wait(0.65)
+	t += 0.7
+	wait(0.75)
+	t += 0.8
+	wait(0.85)
+	t += 0.9
+	wait(0.95)
+	t += 0.96
+	t += 0.97
+	wait(0.5)
+	wait(0.5)
+	script.Parent.Visible = false
+	
+end
+coroutine.wrap(EUOY_fake_script)()
