@@ -30,7 +30,7 @@ local plr = game.Players.LocalPlayer
 local Tab = Window:CreateTab("Drive World", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("Drive World")
 local DefaultButton = Tab:CreateButton({
-    Name = "Default Speed",
+    Name = "Drive World",
     Callback = function(Value)
         loadstring(game:HttpGet("https://raw.githubusercontent.com/ufouzzed/m/main/CarShitterHub.lua"))()
     end,
