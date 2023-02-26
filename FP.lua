@@ -1,52 +1,37 @@
-local Player = game.Players.LocalPlayer
-local Char = Player.Character
-while not Char do wait()
-	Char = Player.Character
-end
-local Humanoid = Char:WaitForChild("Humanoid")
-local Root = Char:FindFirstChild("HumanoidRootPart")
-while not Root do wait()
-	Root = Char:FindFirstChild("HumanoidRootPart")
-end
-local Mouse = Player:GetMouse()
-local Cam = game.Workspace.CurrentCamera
+local Players, RService = game:GetService("Players"), game:GetService("RunService");
+local LocalP, Mouse = Players.LocalPlayer, Players.LocalPlayer:GetMouse();
+local Rm, Index, NIndex, NCall, Caller = getrawmetatable(game), getrawmetatable(game).__index, getrawmetatable(game).__newindex, getrawmetatable(game).__namecall, checkcaller or is_protosmasher_caller
+local NoClip, NoClipKey = false, "x" -- change 'x' to whatever you want
+setreadonly(Rm, false)
 
-local dir = {w = 0, s = 0, a = 0, d = 0}
-local spd = 2
-Mouse.KeyDown:connect(function(key)
-	if key:lower() == "w" then
-		dir.w = 1
-	elseif key:lower() == "s" then
-		dir.s = 1
-	elseif key:lower() == "a" then
-		dir.a = 1
-	elseif key:lower() == "d" then
-		dir.d = 1
-	elseif key:lower() == "q" then
-		spd = spd + 1
-	elseif key:lower() == "e" then
-		spd = spd - 1
-	end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/zxciaz/Universal-Scripts/main/Notification%20Function", true))()
+Notify("zxciaz", "Press F9 for Directions", "", 4);
+warn("NoClip + Bypass made by zxciaz");
+warn("Press "..string.upper(NoClipKey).." to turn off and on NoClip");
+
+Rm.__newindex = newcclosure(function(self, Meme, Value)
+    if Caller() then return NIndex(self, Meme, Value) end 
+    if tostring(self) == "HumanoidRootPart" or tostring(self) == "Torso" then 
+        if Meme == "CFrame" and self:IsDescendantOf(LocalP.Character) then 
+            return true -- Credits to ze_lI for this
+        end
+    end
+    return NIndex(self, Meme, Value)
 end)
-Mouse.KeyUp:connect(function(key)
-	if key:lower() == "w" then
-		dir.w = 0
-	elseif key:lower() == "s" then
-		dir.s = 0
-	elseif key:lower() == "a" then
-		dir.a = 0
-	elseif key:lower() == "d" then
-		dir.d = 0
-	end
+setreadonly(Rm, true)
+
+RService.Stepped:Connect(function()
+    if NoClip == true and LocalP and LocalP.Character and LocalP.Character:FindFirstChild("Humanoid") then 
+        pcall(function() -- fuck errors
+            LocalP.Character.Head.CanCollide = false 
+            LocalP.Character.Torso.CanCollide = false
+        end)
+    end
 end)
-Root.Anchored = true
-Humanoid.PlatformStand = true
-Humanoid.Changed:connect(function()
-	Humanoid.PlatformStand = true
+
+Mouse.KeyDown:Connect(function(Key)
+    if Key == NoClipKey then 
+        NoClip = not NoClip
+        Notify("zxciaz", "NoClip: "..tostring(NoClip), "", 3)
+    end
 end)
-repeat
-	wait(1/44)
-	Root.CFrame = CFrame.new(Root.Position, Cam.CoordinateFrame.p) 
-		* CFrame.Angles(0,math.rad(180),0)
-		* CFrame.new((dir.d-dir.a)*spd,0,(dir.s-dir.w)*spd)
-until nil
