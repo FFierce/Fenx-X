@@ -1,5 +1,4 @@
--- Bring to you by 7alexv7
--- Enjoy the script!
+
 
 -- Instances:
 
@@ -154,6 +153,11 @@ end
 coroutine.wrap(NQWSTGE_fake_script)()
 local function RAQA_fake_script() -- Frame.Buttons 
 	local script = Instance.new('LocalScript', Frame)
+frame = script.Parent.Parent
+	frame.Draggable = true
+	frame.Active = true
+	frame.Selectable = true
+	frame.ResetOnSpawn = false
 
 	local Trigger = script.Parent.MiniTrext
 	local IsMini = false
