@@ -1,0 +1,36 @@
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local coinsFolder = game.Workspace.COINS
+local teleportingCoins = true
+local originalWalkSpeed = humanoid.WalkSpeed
+
+function teleportCoins()
+    while teleportingCoins do
+        local coins = coinsFolder:GetChildren()
+        for _, coin in pairs(coins) do
+            if string.match(coin.Name, "^Coin_Drop") or string.match(coin.Name, "^BigCoin_Drop") then
+                coin.CFrame = CFrame.new(player.Character.HumanoidRootPart.Position)
+            end
+        end
+        wait(0.5)
+    end
+end
+
+function stopTeleportingCoins()
+    teleportingCoins = false
+    humanoid.WalkSpeed = originalWalkSpeed
+end
+
+getgenv().CoinFarm = function()
+    if teleportingCoins then
+        stopTeleportingCoins()
+    else
+        teleportingCoins = true
+        originalWalkSpeed = humanoid.WalkSpeed
+        humanoid.WalkSpeed = 0
+        teleportCoins()
+    end
+end
+
+teleportCoins()
